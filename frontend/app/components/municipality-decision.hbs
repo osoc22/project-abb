@@ -1,5 +1,5 @@
 <div style='margin-top: 30px;'>
-  <AuDataTable
+  {{!-- <AuDataTable
     @content={{this.municipality.decisionData}}
     @fields='title description'
     @noDataMessage='Geen data'
@@ -42,6 +42,12 @@
         </td>
       </c.body>
     </t.content>
-  </AuDataTable>
+  </AuDataTable> --}}
+
+  {{#each this.municipality.decisionData as |d|}}
+    <div class='ml-3'>
+      <p class='text-3xl color-red'>{{d.category}}</p>
+    </div>
+  {{/each}}
 </div>
 {{yield}}

@@ -13,8 +13,11 @@ Router.map(function () {
 
   this.route('municipality', { path: '/gemeente/:mun_id' }, function () {
     this.route('info');
-    this.route('decisions', { path: 'beslissingen' });
+    this.route('decisions', { path: '/beslissingen' });
+    this.route('decision', { path: '/beslissing/:decision_id' });
+    this.route('subscribe');
   });
   this.route('wat-zijn-belastingen');
   this.route('hoe-worden-beslissingen-genomen');
+  this.route('subscribe');
 });

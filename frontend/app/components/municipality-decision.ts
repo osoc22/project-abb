@@ -7,6 +7,7 @@ import { Municipality } from 'index';
 
 export default class MunicipalityDecisionComponent extends Component {
   @service declare municipalities: MunicipalitiesService;
+  @tracked id = 1;
 
   @action findMunicipalities() {
     return this.municipalities.municipalityData.find(

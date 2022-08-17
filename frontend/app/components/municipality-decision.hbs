@@ -28,11 +28,15 @@
         <td>
           {{row.category}}
         </td>
-        <td style='position: relative;' class="decision-container">
+        <td style='position: relative;' class='decision-container'>
           <div
-          class="decision-vote-dashboard"
+            class='decision-vote-dashboard'
             style='position: absolute; width: 110px; height: 32px; top: 0; right: 0; padding: 0 10px; justify-content: space-around; transform: translate(30%, -30%);'
-          ><div style="border-radius: 50%; background-color: white; border: 1px solid black; box-shadow: 6px -6px #FFE615;width: 32px; height: 32px; display:flex; justify-content: center; align-items: center;"><AuIcon @icon="check"/></div><div style="border-radius: 50%; background-color: white; box-shadow: 6px -6px #003B8E;width: 32px; border: 1px solid black; height: 32px; display:flex; justify-content: center; align-items: center;"><AuIcon @icon="x"/></div></div>
+          ><div
+              style='border-radius: 50%; background-color: white; border: 1px solid black; box-shadow: 6px -6px #FFE615;width: 32px; height: 32px; display:flex; justify-content: center; align-items: center;'
+            ><AuIcon @icon='check' /></div><div
+              style='border-radius: 50%; background-color: white; box-shadow: 6px -6px #003B8E;width: 32px; border: 1px solid black; height: 32px; display:flex; justify-content: center; align-items: center;'
+            ><AuIcon @icon='x' /></div></div>
           <a href={{row.document}}>
             {{row.document}}
           </a>
@@ -40,8 +44,25 @@
         <td>
           {{row.date}}
         </td>
+        <td>
+          <AuButton @icon='book' @iconAlignment='left'>
+            <LinkTo
+              @model={{this.id}}
+              @route={{'municipality.decision'}}
+              style='color: white; text-decoration: none;'
+            >
+              Bekijk besluit
+            </LinkTo>
+          </AuButton>
+        </td>
       </c.body>
     </t.content>
   </AuDataTable>
+  <div class='floating-button-dock'>
+    <AuLink @route='municipality.subscribe'>
+      <AuButton style='cursor: pointer;'>
+        Abonneren</AuButton>
+    </AuLink>
+  </div>
 </div>
 {{yield}}

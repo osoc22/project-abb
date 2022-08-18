@@ -10,17 +10,16 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@appuniversum/appuniversum@^1.0.0", "@appuniversum/appuniversum@^1.1.0":
+"@appuniversum/appuniversum@^1.1.0":
   version "1.2.0"
   resolved "https://registry.npmjs.org/@appuniversum/appuniversum/-/appuniversum-1.2.0.tgz"
   integrity sha512-zbbffi99r4EH438n/8YTig2vH6SrVjhdRoYQN3JKoJ99E5nn5rVbbAsJdPI+n8GTriOW+HAwbHjYpjhnJhSdvg==
 
-"@appuniversum/ember-appuniversum@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/@appuniversum/ember-appuniversum/-/ember-appuniversum-1.2.1.tgz"
-  integrity sha512-vvmArqiaMMMHbSlxW2MNmucT83bJ9l5hIRJje4nXGT/ZiilS4tWi5YediIdDSE/WHREpGHd1a33yAwM/VvJN8A==
+"@appuniversum/ember-appuniversum@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@appuniversum/ember-appuniversum/-/ember-appuniversum-1.3.0.tgz#43770ddb8c28754fa9aae395c6de6df2bd6c2e13"
+  integrity sha512-A077d8zvRANGTshj4DCSU2rOTLOZlVE3lFzR30PyBRGrfdwq8CTqZpqA0MAlpLcQ2bssPqCj6duafsWfwE9FQA==
   dependencies:
-    "@appuniversum/appuniversum" "^1.0.0"
     "@duetds/date-picker" "^1.4.0"
     "@glimmer/component" "^1.1.1"
     "@glimmer/tracking" "^1.1.1"
@@ -29,7 +28,7 @@
     ember-auto-import "^2.4.1"
     ember-cli-babel "^7.26.11"
     ember-cli-htmlbars "^6.0.1"
-    ember-data-table "^2.0.2"
+    ember-data-table "^2.1.0"
     ember-file-upload "^4.0.1"
     ember-focus-trap "^1.0.1"
     ember-inputmask5 "^3.2.0"
@@ -5999,9 +5998,9 @@ ember-copy@^2.0.1:
   dependencies:
     ember-cli-babel "^7.22.1"
 
-ember-data-table@^2.0.2:
+ember-data-table@^2.1.0:
   version "2.1.0"
-  resolved "https://registry.npmjs.org/ember-data-table/-/ember-data-table-2.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/ember-data-table/-/ember-data-table-2.1.0.tgz#ee46f9592e7e3d5013cfb1432115e3ab27b153ca"
   integrity sha512-h/rI5K9woEafshFAjTfMVhfXK91aEjsXJO1zsYsY6aXZBfiNXWbCfrrnMk8W5Q3c8uPeNPyZ12W0//i/wQmGTg==
   dependencies:
     ember-auto-import "^1.12.0"

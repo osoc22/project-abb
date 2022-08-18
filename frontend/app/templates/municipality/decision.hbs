@@ -1,2 +1,37 @@
-<p>lolbroek</p>
+<AuToolbar class='au-o-box' as |Group|>
+  <Group>
+    <AuHeading @skin='2'>
+      Besluit
+    </AuHeading>
+  </Group>
+</AuToolbar>
+<section
+  class='au-o-region-large au-u-background-gray-200'
+  style='margin: 0;display:flex; flex-direction:column; height: 100%; padding: 20px;'
+>
+  <div style='display: flex; width: 100%; gap: 48px;'>
+    <AuContent>
+      <h3>Lolbroke 1</h3>
+      <p>pretpet</p>
+    </AuContent>
+    <AuContent>
+      <h3> Lol borke 1</h3>
+      <p>lachjas</p>
+    </AuContent>
+    <AuContent>
+      <h3> Lolbroek 1</h3>
+      <p>gorappe namnene</p>
+    </AuContent>
+  </div>
+
+  <div style='display:flex; justify-content: center;  align-items:center;'>
+    <C3Chart
+      @data={{this.data}}
+      @color={{this.color}}
+      @size={{this.size}}
+      @title={{this.title}}
+      @padding={{this.padding}}
+    />
+  </div>
+</section>
 {{outlet}}

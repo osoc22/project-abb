@@ -4,7 +4,12 @@
   style='margin: 0;display:flex; justify-content: center; flex-direction:column; align-items:center; height: 100%;'
 >
   <p>Abboneer aan [insert naam van belastingscategorie] in {{this.model}}</p>
-  <div style='display: flex; '>
+  <div style='display: flex; flex-direction:column;'>
+    Geef uw emailadres in:
+    <AuInput @placeholder='Email' />
+    of log in met itsme:
+    <AuButton>Aanmelden</AuButton>
+
     <AuButton onclick={{action 'clickButton'}}>Abonneer</AuButton>
   </div>
   {{outlet}}

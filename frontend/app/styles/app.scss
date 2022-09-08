@@ -9,10 +9,6 @@
 @import 'ember-appuniversum/a-plugins';
 @import 'ember-appuniversum/a-utilities';
 
-// @import 'tailwind/base';
-// @import 'tailwind/components';
-// @import 'tailwind/utilities';
-
 $navBarHeight: 4.5vh;
 $toolBarHeight: 5vh;
 $paddingValue: 1vh;
@@ -22,18 +18,17 @@ $paddingValue: 1vh;
 }
 
 .decision-container {
-  transition: opacity 2s ease-in;
-  .decision-vote-dashboard {
-    transition: opacity 2s ease-in;
-    display: none;
+  transition: all 10s ease-in;
+  z-index: 100;
+  &:hover {
+    transition: all 10s ease-in;
+    .decision-vote-dashboard {
+      display: flex;
+    }
   }
-}
-
-.decision-container:hover {
-  transition: opacity 2s ease-in;
   .decision-vote-dashboard {
-    transition: opacity 2s ease-in;
-    display: flex;
+    transition: all 10s ease-in;
+    display: none;
   }
 }
 
@@ -277,10 +272,12 @@ $paddingValue: 1vh;
 }
 
 .floating-button-dock {
+  box-shadow: 5px 5px #00000066;
   position: fixed;
   bottom: 30px;
   right: 30px;
   z-index: 999;
+  display: flex;
 }
 
 @import 'ember-power-select';

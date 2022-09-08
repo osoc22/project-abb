@@ -16,11 +16,6 @@ export default class MunicipalityDecision extends Controller {
     pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'],
   };
 
-  size = {
-    height: 180,
-  };
-
   // chart title
   title = { text: 'Stemming' };
-  padding = { top: 20 };
 }

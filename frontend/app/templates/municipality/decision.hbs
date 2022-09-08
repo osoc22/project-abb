@@ -2,36 +2,42 @@
   <Group>
     <AuHeading @skin='2'>
       Besluit
+      {{this.model}}
     </AuHeading>
   </Group>
 </AuToolbar>
 <section
   class='au-o-region-large au-u-background-gray-200'
-  style='margin: 0;display:flex; flex-direction:column; height: 100%; padding: 20px;'
+  style='margin: 0;display:flex; height: 100%; padding: 20px;'
 >
-  <div style='display: flex; width: 100%; gap: 48px;'>
+  <div
+    style='display: flex; width: 50%; gap: 48px; padding-right: 100px; background-color:white;padding:40px;'
+    class='au-c-card au-c-card--fill'
+  >
     <AuContent>
-      <h3>Lolbroke 1</h3>
-      <p>pretpet</p>
-    </AuContent>
-    <AuContent>
-      <h3> Lol borke 1</h3>
-      <p>lachjas</p>
-    </AuContent>
-    <AuContent>
-      <h3> Lolbroek 1</h3>
-      <p>gorappe namnene</p>
+      <h3>INFO:</h3>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero,
+        deserunt iusto. Quidem aliquam quae porro be atae molestiae voluptate
+        obcaecati quisquam aperiam nesciunt? Debitis laboriosam eligendi magni
+        maxime. Doloremque, adipisci laudantium! Laudantium fugit impedit illo
+        laboriosam alias accusamus nisi magni enim voluptatum suscipit cumque
+        perferendis tenetur ullam, reprehenderit deserunt sint blanditiis, porro
+        labore nam exercitationem totam, animi id molestiae. Inventore, culpa.
+        Atque alias debitis tempore quaerat maiores. Distinctio quibusdam esse
+        quae soluta, sit omnis ducimus asperiores recusandae adipisci,
+        necessitatibus rerum. Adipisci eaque tenetur pariatur deleniti
+        repudiandae quaerat quisquam consectetur? Culpa, optio! Accusantium quo
+        reiciendis, rerum fugiat eius praesentium non debitis error veritatis
+        est vero inventore in consequatur, impedit facilis tempora magnam, nam
+        ratione eveniet similique. Voluptates esse quia saepe nam possimus? Eos
+        ullam tenetur ut dolorem fuga obcaecati minus accusantium distinctio
+        reprehenderit. Quod accusantium facilis tempore omnis commodi quos sed
+        quam architecto blanditiis? Aliquam mollitia, distinctio tenetur vero
+        corporis explicabo aperiam?</p>
     </AuContent>
   </div>
-
-  <div style='display:flex; justify-content: center;  align-items:center;'>
-    <C3Chart
-      @data={{this.data}}
-      @color={{this.color}}
-      @size={{this.size}}
-      @title={{this.title}}
-      @padding={{this.padding}}
-    />
+  <div style='width: 50%; height: 100%; display:flex;'>
+    <C3Chart @data={{this.data}} @color={{this.color}} @title={{this.title}} />
   </div>
 </section>
 {{outlet}}

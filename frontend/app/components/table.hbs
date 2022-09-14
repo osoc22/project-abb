@@ -41,15 +41,14 @@
             </td><td>
               {{format-currency row.taxData.1.averageRevenue}}
             </td><td>
-              <AuButton @icon='unordered-list' @iconAlignment='right'>
-                <LinkTo
-                  @route={{'municipality.info'}}
-                  @model={{row.title}}
-                  style='color: white;'
-                >
-                  Meer info
-                </LinkTo>
-              </AuButton>
+
+              <AuLink
+                @model={{row.title}}
+                @route={{'municipality.decisions'}}
+                @icon='chevron-right'
+              >
+                Bekijk besluiten
+              </AuLink>
             </td>
           {{/if}}
         {{else}}
@@ -64,15 +63,13 @@
           </td><td>
             {{format-currency row.taxData.1.averageRevenue}}
           </td><td>
-            <AuButton @icon='unordered-list' @iconAlignment='right'>
-              <LinkTo
-                @model={{row.title}}
-                @route={{'municipality.info'}}
-                style='color: white;'
-              >
-                Meer info
-              </LinkTo>
-            </AuButton>
+            <AuLink
+              @model={{row.title}}
+              @route={{'municipality.decisions'}}
+              @icon='chevron-right'
+            >
+              Bekijk besluiten
+            </AuLink>
           </td>
         {{/if}}
       </c.body>

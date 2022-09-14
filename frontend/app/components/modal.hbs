@@ -16,8 +16,10 @@
     <AuButton @icon='unordered-list' @iconAlignment='right'>
       <LinkTo
         @route={{'municipality.info'}}
+        @onClick={{this.municipalities.closeModal}}
         @model={{this.municipalities.modalData.title}}
         style='color: white;'
+        @
       >
         Meer info
       </LinkTo>

@@ -12,8 +12,16 @@ Router.map(function () {
   this.route('dashboard');
 
   this.route('municipality', { path: '/gemeente/:mun_id' }, function () {
-    this.route('info');
-    this.route('decisions', { path: '/beslissingen' });
+    this.route('info', function () {
+      this.route('werk');
+      this.route('lokaal-bestuur');
+      this.route('onderwijs-en-vorming');
+      this.route('wonen-en-woonomgeving');
+      this.route('alle-indicatoren');
+    });
+    this.route('decisions', { path: '/beslissingen' }, function () {
+      this.route('subscribe');
+    });
     this.route('decision', { path: '/beslissing/:decision_id' });
     this.route('subscribe');
   });

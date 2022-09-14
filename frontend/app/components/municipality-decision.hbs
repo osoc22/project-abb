@@ -50,22 +50,23 @@
           {{row.date}}
         </td>
         <td>
-          <AuButton @icon='book' @iconAlignment='left'>
-            <LinkTo
-              @model={{this.id}}
-              @route={{'municipality.decision'}}
-              style='color: white; text-decoration: none;'
-            >
-              Bekijk besluit
-            </LinkTo>
-          </AuButton>
+          {{! <AuButton @icon='book' @iconAlignment='left'> }}
+          <AuLink
+            @model={{this.id}}
+            @route={{'municipality.decision'}}
+            @icon='chevron-right'
+            {{! style='color: white; text-decoration: none;' }}
+          >
+            Bekijk besluit
+          </AuLink>
+          {{! </AuButton> }}
         </td>
       </c.body>
     </t.content>
   </AuDataTable>
   <div class='floating-button-dock'>
-    <AuLink @route='municipality.subscribe'>
-      <AuButton style='cursor: pointer; margin: 0px;'>
+    <AuLink @route='municipality.decisions.subscribe'>
+      <AuButton style='cursor: pointer; margin: 0px; text-decoration:none;'>
         Abonneren
       </AuButton>
     </AuLink>

@@ -17,6 +17,10 @@ $paddingValue: 1vh;
   display: none;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .decision-container {
   transition: all 10s ease-in;
   z-index: 100;
@@ -178,10 +182,14 @@ $paddingValue: 1vh;
   height: 30px;
 }
 
+.ember-application {
+  height: 100vh;
+  width: 100vw;
+}
+
 .mobile-nav {
   visibility: hidden;
 }
-
 .au-c-main-header {
   visibility: visible;
 }
@@ -272,7 +280,6 @@ $paddingValue: 1vh;
 }
 
 .floating-button-dock {
-  box-shadow: 5px 5px #00000066;
   position: fixed;
   bottom: 30px;
   right: 30px;

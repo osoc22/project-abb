@@ -61,7 +61,7 @@ export default class MunicipalityInfoOnderwijsEnVorming extends Controller {
         if (!lol[0].includes(`${e.Jaar}-01-01`)) {
           lol[0].push(`${e.Jaar}-01-01`);
         }
-        lol[1].push(e.Procent);
+        lol[1].push((e.Procent.toFixed(4) * 100).toFixed(2));
       });
       this.participatieKleuteronderwijsGraphData = {
         x: 'x',

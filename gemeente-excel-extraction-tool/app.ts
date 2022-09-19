@@ -3,8 +3,10 @@ var express = require("express");
 var path = require("path");
 const fs = require("fs");
 const cors = require("cors");
+const nodemailer = require("nodemailer");
 
 var app = express();
+const PORT = 3000;
 
 app.use(
   cors({
@@ -13,9 +15,9 @@ app.use(
 );
 app.set("view engine", "jade");
 
-app.get("/*", async function (req, res, next) {
+app.get("/*", async function (req: any, res: any, next: any) {
   try {
-    let gemeente = req.query["gemeente"];
+    let gemeente: any = req.query["gemeente"];
     let query = req.params[0].split("/")[0] + "/" + req.params[0].split("/")[1];
     //  let query be the query string after the first ? in the url
     let data = await JSON.parse(
@@ -23,17 +25,16 @@ app.get("/*", async function (req, res, next) {
     );
     if (gemeente) {
       if (Array.isArray(gemeente)) {
-        let entries = [];
-        entries = gemeente.map((g) => {
-          return data.filter((e) => {
+        let entries: any = [];
+        entries = gemeente.map((g: any) => {
+          return data.filter((e: any) => {
             return e.Gemeente === g;
           });
         });
 
-        console.log(entries);
         return res.json({ Response: entries });
       } else {
-        let entry = data.filter((e) => {
+        let entry = data.filter((e: any) => {
           return e.Gemeente === gemeente;
         });
         console.log(entry);
@@ -49,7 +50,7 @@ app.get("/*", async function (req, res, next) {
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function (err: any, req: any, res: any, next: any) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
@@ -59,4 +60,7 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
+app.listen(PORT, () => {
+  console.log(`Timezones by location application is running on port ${PORT}.`);
+});
 module.exports = app;

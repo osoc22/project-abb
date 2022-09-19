@@ -1,8 +1,11 @@
 import Controller from '@ember/controller';
+import { service } from '@ember/service';
 // import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import MunicipalitiesService from 'frontend/services/municipalities';
 
 export default class MunicipalityDecision extends Controller {
+  @service declare municipalities: MunicipalitiesService;
   @tracked data = {
     columns: [
       ['Voor', 71.4],
@@ -13,7 +16,7 @@ export default class MunicipalityDecision extends Controller {
   };
 
   color = {
-    pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'],
+    pattern: ['#60B044', '#F6C600', '#FF0000'],
   };
 
   // chart title

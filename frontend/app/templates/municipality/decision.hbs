@@ -1,43 +1,122 @@
 <AuToolbar class='au-o-box' as |Group|>
   <Group>
     <AuHeading @skin='2'>
-      Besluit
-      {{this.model}}
+      <AuLink
+        @route='municipality.decisions'
+        @params={{this.municipalities.modalData.title}}
+        style='margin-left: 20px;'
+      >
+        {{this.municipalities.modalData.title}}
+      </AuLink>
+      / Besluit
     </AuHeading>
   </Group>
 </AuToolbar>
 <section
   class='au-o-region-large au-u-background-gray-200'
-  style='margin: 0;display:flex; height: 100%; padding: 20px;'
+  style='margin: 0;display:flex; height:88%; padding: 20px;'
 >
-  <div
-    style='display: flex; width: 50%; gap: 48px; padding-right: 100px; background-color:white;padding:40px;'
-    class='au-c-card au-c-card--fill'
-  >
-    <AuContent>
-      <h3>INFO:</h3>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero,
-        deserunt iusto. Quidem aliquam quae porro be atae molestiae voluptate
-        obcaecati quisquam aperiam nesciunt? Debitis laboriosam eligendi magni
-        maxime. Doloremque, adipisci laudantium! Laudantium fugit impedit illo
-        laboriosam alias accusamus nisi magni enim voluptatum suscipit cumque
-        perferendis tenetur ullam, reprehenderit deserunt sint blanditiis, porro
-        labore nam exercitationem totam, animi id molestiae. Inventore, culpa.
-        Atque alias debitis tempore quaerat maiores. Distinctio quibusdam esse
-        quae soluta, sit omnis ducimus asperiores recusandae adipisci,
-        necessitatibus rerum. Adipisci eaque tenetur pariatur deleniti
-        repudiandae quaerat quisquam consectetur? Culpa, optio! Accusantium quo
-        reiciendis, rerum fugiat eius praesentium non debitis error veritatis
-        est vero inventore in consequatur, impedit facilis tempora magnam, nam
-        ratione eveniet similique. Voluptates esse quia saepe nam possimus? Eos
-        ullam tenetur ut dolorem fuga obcaecati minus accusantium distinctio
-        reprehenderit. Quod accusantium facilis tempore omnis commodi quos sed
-        quam architecto blanditiis? Aliquam mollitia, distinctio tenetur vero
-        corporis explicabo aperiam?</p>
-    </AuContent>
+  <div style='display: flex; width: 50%; flex-direction:column; height:100%;'>
+    <div
+      style='gap: 48px; padding-right: 100px;height:100%; background-color:white;padding:40px; overflow-y: scroll;'
+      class='au-c-card au-c-card--fill'
+    >
+      <AuContent>
+        <h4 class='au-u-h5'>Aanwezig</h4>
+        <p class='au-u-para'>de heer Kris Declercq</p>
+        <h4 class='au-u-h5'>Juridische grond</h4>
+        <p class='au-u-para' style='text-align: justify;'>In het kader van de
+          bevoegdheid van de burgemeester, op grond van artikel 135 Nieuwe
+          Gemeentewet (NGW), wordt volgende concrete instructie gegeven die zal
+          gelden op donderdag 23 juni 2022 en vrijdag 24 juni 2022. Op grond van
+          artikel 133 NGW is de burgemeester belast met de uitvoering van de
+          wetten, de decreten, de ordonnanties, de verordeningen en de besluiten
+          van de Staat, de Gewesten, de Gemeenschappen, de
+          Gemeenschapscommissies, de provincieraad en de bestendige deputatie
+          van de provincieraad, tenzij zulks uitdrukkelijk aan het college van
+          burgemeester en schepenen of aan de gemeenteraad is opgedragen. Op
+          grond van art. 135 §2 NGW hebben de gemeenten ook tot taak in het
+          voorzien ten behoeve van de inwoners in een goede politie, met name
+          over de zindelijkheid, de gezondheid, de veiligheid en de rust op de
+          openbare wegen en plaatsen en in openbare gebouwen en meer specifiek
+          135 § 2: 1°, 2°, 3° en 7° NGW. Gelet op de art. 133, 133bis en 135 NGW
+          en art. 286 van het decreet lokaal bestuur.</p>
+        <h4 class='au-u-h5'>Context & argumentatie</h4>
+        <p class='au-u-para'>De activiteiten in het kader van de aanloop naar
+          het einde van het derde trimester, waarbij studenten na de examens
+          feest vieren, ging de laatste jaren gepaard met een overdadig
+          alcoholgebruik. Dit werd voor een groot deel veroorzaakt door het feit
+          dat deze activiteiten niet beperkt bleven tot bepaalde locaties of
+          tijdstippen maar dat ook reeds overdag alcohol verbruikt werd, vaak in
+          overmatige hoeveelheden. Daarom wordt er voorgesteld om op donderdag
+          23 juni 2022 en vrijdag 24 juni 2022 een algemeen verbod voor
+          minderjarigen of studenten om in het bezit te zijn van alcohol op
+          openbaar domein in te voeren. Terrassen van horecazaken worden niet
+          als openbaar domein beschouwd. Op vrijdag 24 juni 2022 loopt dit
+          verbod op de Grote Markt tot 18 u.</p>
+        <h4 class='au-u-h4'>Besluit</h4>
+        <section class='au-u-para'>
+          <p class='au-u-bold' style='text-decoration: underline;'>
+            Artikel 1
+          </p>
+          <p>
+
+            Op donderdag 23 juni 2022 en vrijdag 24 juni 2022 geldt een algemeen
+            verbod voor minderjarigen of studenten om in het bezit te zijn van
+            alcohol op openbaar domein. Terrassen van horecazaken worden niet
+            als openbaar domein beschouwd. Op vrijdag 24 juni 2022 loopt dit
+            verbod op de Grote Markt tot 18 u.
+          </p>
+          <p class='au-u-bold' style='text-decoration: underline;'>
+            Artikel 2
+
+          </p>
+          <p>
+
+            Overtredingen van dit besluit zullen bestraft worden met een
+            administratieve sanctie conform de wet op de gemeentelijke
+            administratieve sancties van 24 juni 2013, artikel 119 bis van de
+            Nieuwe Gemeentewet en bijlage 1 van het Stedelijk Gecoördineerd
+            Politiereglement van 14 december 2015.
+          </p>
+          <p class='au-u-bold' style='text-decoration: underline;'>
+
+            Artikel 3
+          </p>
+          <p>
+
+            Een afschrift van dit besluit zal verstuurd worden aan de : •
+            Rechtbank van Eerste Aanleg West-Vlaanderen, afdeling Kortrijk,
+            Burgemeester Nolfstraat 10a, 8500 Kortrijk • Politierechtbank
+            West-Vlaanderen (piet.vantieghem@just.fgov.be) • Politiezone RIHO •
+            Toezichthoudende overheid (via het digitaal loket)
+          </p>
+          <p class='au-u-bold' style='text-decoration: underline;'>
+            Artikel 4
+          </p>
+          <p>
+
+            Dit besluit wordt na goedkeuring bekend gemaakt op de website van de
+            Stad Roeselare cfr. artikels 285, 286 en 287 van het decreet lokaal
+            bestuur en opgenomen in het register van de bekendmakingen.</p>
+        </section>
+      </AuContent>
+    </div>
+    <AuButton>Bekijk besluit</AuButton>
   </div>
-  <div style='width: 50%; height: 50%; display:flex;'>
-    <C3Chart @data={{this.data}} @color={{this.color}} @title={{this.title}} />
+  <div style='width: 50%; height: 100%; display:flex; flex-direction:column;'>
+    <section style='width: 100%; height:50%;'>
+      <C3Chart
+        @data={{this.data}}
+        @color={{this.color}}
+        @title={{this.title}}
+      />
+    </section>
+    <section
+      style='width:100%; height: 50%; display:flex; justify-content:space-around;'
+    >
+      <AuButton>Voor</AuButton>
+      <AuButton>Tegen</AuButton>
+    </section>
   </div>
 </section>
-{{outlet}}

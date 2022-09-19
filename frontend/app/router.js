@@ -23,9 +23,7 @@ Router.map(function () {
       this.route('subscribe');
     });
     this.route('decision', { path: '/beslissing/:decision_id' });
-    this.route('subscribe');
   });
   this.route('wat-zijn-belastingen');
   this.route('hoe-worden-beslissingen-genomen');
-  this.route('subscribe');
 });

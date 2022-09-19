@@ -58,7 +58,9 @@ export default class MunicipalityInfoOnderwijsEnVorming extends Controller {
     ).then((resp) => {
       let lol: any = [['x'], ['Percentage (%)']];
       resp.data.Response.forEach((e: any) => {
-        lol[0].push(`${e.Jaar}-01-01`);
+        if (!lol[0].includes(`${e.Jaar}-01-01`)) {
+          lol[0].push(`${e.Jaar}-01-01`);
+        }
         lol[1].push(e.Procent);
       });
       this.participatieKleuteronderwijsGraphData = {
@@ -74,7 +76,9 @@ export default class MunicipalityInfoOnderwijsEnVorming extends Controller {
     ).then((resp) => {
       let lol: any = [['x'], ['Instroom'], ['Uitstroom']];
       resp.data.Response.forEach((e: any) => {
-        lol[0].push(`${e.Jaar}-01-01`);
+        if (!lol[0].includes(`${e.Jaar}-01-01`)) {
+          lol[0].push(`${e.Jaar}-01-01`);
+        }
         if (e.Groepering === 'Instroom LO') {
           lol[1].push(e['In-/Uitstroom']);
         } else {
@@ -94,7 +98,9 @@ export default class MunicipalityInfoOnderwijsEnVorming extends Controller {
     ).then((resp) => {
       let lol: any = [['x'], ['Instroom'], ['Uitstroom']];
       resp.data.Response.forEach((e: any) => {
-        lol[0].push(`${e.Jaar}-01-01`);
+        if (!lol[0].includes(`${e.Jaar}-01-01`)) {
+          lol[0].push(`${e.Jaar}-01-01`);
+        }
         if (e.Groepering === 'Instroom SO') {
           lol[1].push(e['In-/uitstroom']);
         } else {

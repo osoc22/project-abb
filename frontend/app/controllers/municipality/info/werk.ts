@@ -55,7 +55,9 @@ export default class MunicipalityInfoWerk extends Controller {
     ).then((resp) => {
       let lol: any = [['x'], ['Percentage (%)']];
       resp.data.Response.forEach((e: any) => {
-        lol[0].push(`${e.Jaar}-01-01`);
+        if (!lol[0].includes(`${e.Jaar}-01-01`)) {
+          lol[0].push(`${e.Jaar}-01-01`);
+        }
         lol[1].push(e.Procent);
       });
       this.activiteitsGraphData = {
@@ -71,8 +73,9 @@ export default class MunicipalityInfoWerk extends Controller {
     ).then((resp) => {
       let lol: any = [['x'], ['Mannen (%)'], ['Vrouwen (%)']];
       resp.data.Response.forEach((e: any) => {
-        console.log(e);
-        lol[0].push(`${e.Jaar}-01-01`);
+        if (!lol[0].includes(`${e.Jaar}-01-01`)) {
+          lol[0].push(`${e.Jaar}-01-01`);
+        }
         if (e.Geslacht === 'Mannen') {
           lol[1].push(e.Procent);
         } else {
@@ -92,8 +95,9 @@ export default class MunicipalityInfoWerk extends Controller {
     ).then((resp) => {
       let lol: any = [['x'], ['Percentage (%)']];
       resp.data.Response.forEach((e: any) => {
-        console.log(e);
-        lol[0].push(`${e.Jaar}-01-01`);
+        if (!lol[0].includes(`${e.Jaar}-01-01`)) {
+          lol[0].push(`${e.Jaar}-01-01`);
+        }
         lol[1].push(e.Procent);
       });
       this.niet_werkende_werkzoekendenGraphData = {

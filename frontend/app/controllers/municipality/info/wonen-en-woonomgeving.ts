@@ -54,8 +54,9 @@ export default class MunicipalityInfoWonenEnWoonomgeving extends Controller {
     ).then((resp) => {
       let lol: any = [['x'], ['Appartementen'], ['Huizen']];
       resp.data.Response.forEach((e: any) => {
-        console.log(e);
-        lol[0].push(`${e.Jaar}-01-01`);
+        if (!lol[0].includes(`${e.Jaar}-01-01`)) {
+          lol[0].push(`${e.Jaar}-01-01`);
+        }
         if (e.Soort === 'Huizen') {
           lol[2].push(e['Huurprijs in euro']);
         } else {
@@ -75,7 +76,9 @@ export default class MunicipalityInfoWonenEnWoonomgeving extends Controller {
     ).then((resp) => {
       let lol: any = [['x'], ['Aantal sociale woningen']];
       resp.data.Response.forEach((e: any) => {
-        lol[0].push(`${e.Jaar}-01-01`);
+        if (!lol[0].includes(`${e.Jaar}-01-01`)) {
+          lol[0].push(`${e.Jaar}-01-01`);
+        }
         lol[1].push(e['Aantal sociale woningen']);
       });
       this.sociaalWoningsaanbodGraphData = {
@@ -96,7 +99,9 @@ export default class MunicipalityInfoWonenEnWoonomgeving extends Controller {
         ['Open bebouwing'],
       ];
       resp.data.Response.forEach((e: any) => {
-        lol[0].push(`${e.Jaar}-01-01`);
+        if (!lol[0].includes(`${e.Jaar}-01-01`)) {
+          lol[0].push(`${e.Jaar}-01-01`);
+        }
         if (e.Omschrijving == 'Alle huizen') {
           lol[1].push(e['Mediaanprijs in euro']);
         } else if (e.Omschrijving == 'Gesloten/halfopen bebouwing') {

@@ -52,9 +52,11 @@ export default class MunicipalityInfoLokaalBestuur extends Controller {
       //@ts-ignore
       this.urls[0] + this.municipalities?.modalData?.title.toLowerCase()
     ).then((resp) => {
-      let lol: any = [['x'], ['Gemeente en OCMW'], ['AGB']];
+      let lol: [[any], [any], [any]] = [['x'], ['Gemeente en OCMW'], ['AGB']];
       resp.data.Response.forEach((e: any) => {
-        lol[0].push(`${e.Boekjaar}-01-01`);
+        if (!lol[0].includes(`${e.Boekjaar}-01-01`)) {
+          lol[0].push(`${e.Boekjaar}-01-01`);
+        }
         if (e.Bestuur === 'Gemeente en OCMW') {
           lol[1].push(e['Totaal per inwoner']);
         } else {
@@ -74,8 +76,9 @@ export default class MunicipalityInfoLokaalBestuur extends Controller {
     ).then((resp) => {
       let lol: any = [['x'], ['Gemeente & OCMW'], ['AGB']];
       resp.data.Response.forEach((e: any) => {
-        console.log(e);
-        lol[0].push(`${e.Boekjaar}-01-01`);
+        if (!lol[0].includes(`${e.Boekjaar}-01-01`)) {
+          lol[0].push(`${e.Boekjaar}-01-01`);
+        }
         if (e.Bestuur === 'Gemeente en OCMW') {
           lol[1].push(e['Totaal per inwoner']);
         } else {
@@ -95,8 +98,9 @@ export default class MunicipalityInfoLokaalBestuur extends Controller {
     ).then((resp) => {
       let lol: any = [['x'], ['Gemeente en OCMW'], ['AGB']];
       resp.data.Response.forEach((e: any) => {
-        console.log(e);
-        lol[0].push(`${e.Boekjaar}-01-01`);
+        if (!lol[0].includes(`${e.Boekjaar}-01-01`)) {
+          lol[0].push(`${e.Boekjaar}-01-01`);
+        }
         if (e.Bestuur === 'Gemeente en OCMW') {
           lol[1].push(e['Totaal per inwoner']);
         } else {

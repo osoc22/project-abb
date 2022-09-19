@@ -11,16 +11,6 @@
           @field='title'
           @label='Gemeente'
           @class='data-table__header-title'
-        />
-        <AuDataTableThSortable
-          @field='description'
-          @label='Totale inkomsten (€)'
-          @class='data-table__header-title'
-        />
-        <AuDataTableThSortable
-          @field='description'
-          @label='Globale inkomen per inwoner (€)'
-          @class='data-table__header-title'
         /><AuDataTableThSortable
           @field='description'
           @label=''
@@ -37,10 +27,6 @@
               {{row.title}}
             </td>
             <td>
-              {{format-currency row.taxData.1.totalRevenue}}
-            </td><td>
-              {{format-currency row.taxData.1.averageRevenue}}
-            </td><td>
 
               <AuLink
                 @model={{row.title}}
@@ -59,10 +45,6 @@
             {{row.title}}
           </td>
           <td>
-            {{format-currency row.taxData.1.totalRevenue}}
-          </td><td>
-            {{format-currency row.taxData.1.averageRevenue}}
-          </td><td>
             <AuLink
               @model={{row.title}}
               @route={{'municipality.decisions'}}

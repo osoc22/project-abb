@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
 import { service } from '@ember/service';
 // import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
@@ -6,6 +7,19 @@ import MunicipalitiesService from 'frontend/services/municipalities';
 
 export default class MunicipalityDecision extends Controller {
   @service declare municipalities: MunicipalitiesService;
+  @tracked button1 = 'secondary';
+  @tracked button2 = 'secondary';
+
+  @action vote(buttonName: string) {
+    if (buttonName === 'button1') {
+      this.button1 = 'primary';
+      this.button2 = 'secondary';
+    } else {
+      this.button1 = 'secondary';
+      this.button2 = 'primary';
+    }
+  }
+
   @tracked data = {
     columns: [
       ['Voor', 71.4],

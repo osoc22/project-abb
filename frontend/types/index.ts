@@ -1,8 +1,8 @@
 export type Decision = {
   category?: string;
   document: string;
-  total: number;
   date: string;
+  actief: true | false;
 };
 
 export type Tax = {
@@ -19,6 +19,6 @@ export type Municipality = {
 
 export type GraphOptions = {
   x?: string;
-  columns: Array<[string | number, string | number]>;
-  type: 'pie' | 'line' | 'bar';
+  columns: Array<any>;
+  type: 'pie' | 'line' | 'bar' | 'spline';
 };

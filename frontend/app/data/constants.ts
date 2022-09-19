@@ -6,6 +6,7 @@ export type TinfoTypes =
   | 'wonen_en_woonomgeving';
 
 export const infoTypes = [
+  'Algemeen',
   'Alle Indicatoren',
   'Lokaal Bestuur',
   'Onderwijs en Vorming',

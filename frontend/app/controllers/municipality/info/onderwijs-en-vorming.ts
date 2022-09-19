@@ -28,18 +28,18 @@ export default class MunicipalityInfoOnderwijsEnVorming extends Controller {
   @tracked participatieKleuteronderwijsGraphData: GraphOptions = {
     x: 'x',
     columns: [],
-    type: 'line',
+    type: 'spline',
   };
   @tracked IOLagerOnderwijsGraphData: GraphOptions = {
     x: 'x',
     columns: [],
-    type: 'line',
+    type: 'spline',
   };
 
   @tracked IOSecundairOnderwijsGraphData: GraphOptions = {
     x: 'x',
     columns: [],
-    type: 'line',
+    type: 'spline',
   };
 
   @tracked axis = {
@@ -64,7 +64,7 @@ export default class MunicipalityInfoOnderwijsEnVorming extends Controller {
       this.participatieKleuteronderwijsGraphData = {
         x: 'x',
         columns: lol,
-        type: 'line',
+        type: 'spline',
       };
     });
 
@@ -84,7 +84,7 @@ export default class MunicipalityInfoOnderwijsEnVorming extends Controller {
       this.IOLagerOnderwijsGraphData = {
         x: 'x',
         columns: lol,
-        type: 'line',
+        type: 'spline',
       };
     });
 
@@ -104,7 +104,7 @@ export default class MunicipalityInfoOnderwijsEnVorming extends Controller {
       this.IOSecundairOnderwijsGraphData = {
         x: 'x',
         columns: lol,
-        type: 'line',
+        type: 'spline',
       };
     });
   }

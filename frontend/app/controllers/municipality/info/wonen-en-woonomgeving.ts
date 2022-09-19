@@ -24,18 +24,18 @@ export default class MunicipalityInfoWonenEnWoonomgeving extends Controller {
   @tracked gemiddeldeHuurprijsGraphData: GraphOptions = {
     x: 'x',
     columns: [],
-    type: 'line',
+    type: 'spline',
   };
   @tracked sociaalWoningsaanbodGraphData: GraphOptions = {
     x: 'x',
     columns: [],
-    type: 'line',
+    type: 'spline',
   };
 
   @tracked mediaansprijsHuizenGraphData: GraphOptions = {
     x: 'x',
     columns: [],
-    type: 'line',
+    type: 'spline',
   };
 
   @tracked axis = {
@@ -65,7 +65,7 @@ export default class MunicipalityInfoWonenEnWoonomgeving extends Controller {
       this.gemiddeldeHuurprijsGraphData = {
         x: 'x',
         columns: lol,
-        type: 'line',
+        type: 'spline',
       };
     });
 
@@ -81,7 +81,7 @@ export default class MunicipalityInfoWonenEnWoonomgeving extends Controller {
       this.sociaalWoningsaanbodGraphData = {
         x: 'x',
         columns: lol,
-        type: 'line',
+        type: 'spline',
       };
     });
 
@@ -108,7 +108,7 @@ export default class MunicipalityInfoWonenEnWoonomgeving extends Controller {
       this.mediaansprijsHuizenGraphData = {
         x: 'x',
         columns: lol,
-        type: 'line',
+        type: 'spline',
       };
     });
   }

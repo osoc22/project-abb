@@ -53,6 +53,7 @@ export const generateDecisionData: () => Array<Decision> = () => {
           1,
         total: Math.floor(Math.random() * 10000) + 100,
         date: '11-11-2019',
+        actief: Math.random() > 0.5 ? true : false,
       };
     }
   );

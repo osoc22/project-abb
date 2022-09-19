@@ -21,6 +21,17 @@ body {
   overflow-x: hidden;
 }
 
+::-moz-selection {
+  //  background: #ffe6154d;
+  background: #ffe6154d;
+  color: #333332;
+}
+
+::selection {
+  background: #ffe6154d;
+  color: #333332;
+}
+
 .decision-container {
   transition: all 10s ease-in;
   z-index: 100;

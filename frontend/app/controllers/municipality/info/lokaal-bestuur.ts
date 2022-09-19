@@ -24,18 +24,18 @@ export default class MunicipalityInfoLokaalBestuur extends Controller {
   @tracked uitgavenGraphData: GraphOptions = {
     x: 'x',
     columns: [],
-    type: 'line',
+    type: 'spline',
   };
   @tracked ontvangstenGraphData: GraphOptions = {
     x: 'x',
     columns: [],
-    type: 'line',
+    type: 'spline',
   };
 
   @tracked financiele_schuldGraphData: GraphOptions = {
     x: 'x',
     columns: [],
-    type: 'line',
+    type: 'spline',
   };
 
   @tracked axis = {
@@ -64,7 +64,7 @@ export default class MunicipalityInfoLokaalBestuur extends Controller {
       this.uitgavenGraphData = {
         x: 'x',
         columns: lol,
-        type: 'line',
+        type: 'spline',
       };
     });
 
@@ -85,7 +85,7 @@ export default class MunicipalityInfoLokaalBestuur extends Controller {
       this.ontvangstenGraphData = {
         x: 'x',
         columns: lol,
-        type: 'line',
+        type: 'spline',
       };
     });
 
@@ -106,7 +106,7 @@ export default class MunicipalityInfoLokaalBestuur extends Controller {
       this.financiele_schuldGraphData = {
         x: 'x',
         columns: lol,
-        type: 'line',
+        type: 'spline',
       };
     });
   }

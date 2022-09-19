@@ -25,18 +25,18 @@ export default class MunicipalityInfoWerk extends Controller {
   @tracked activiteitsGraphData: GraphOptions = {
     x: 'x',
     columns: [],
-    type: 'line',
+    type: 'spline',
   };
   @tracked deeltijdswerkenGraphData: GraphOptions = {
     x: 'x',
     columns: [],
-    type: 'line',
+    type: 'spline',
   };
 
   @tracked niet_werkende_werkzoekendenGraphData: GraphOptions = {
     x: 'x',
     columns: [],
-    type: 'line',
+    type: 'spline',
   };
 
   @tracked axis = {
@@ -61,7 +61,7 @@ export default class MunicipalityInfoWerk extends Controller {
       this.activiteitsGraphData = {
         x: 'x',
         columns: lol,
-        type: 'line',
+        type: 'spline',
       };
     });
 
@@ -82,7 +82,7 @@ export default class MunicipalityInfoWerk extends Controller {
       this.deeltijdswerkenGraphData = {
         x: 'x',
         columns: lol,
-        type: 'line',
+        type: 'spline',
       };
     });
 
@@ -99,7 +99,7 @@ export default class MunicipalityInfoWerk extends Controller {
       this.niet_werkende_werkzoekendenGraphData = {
         x: 'x',
         columns: lol,
-        type: 'line',
+        type: 'spline',
       };
     });
   }

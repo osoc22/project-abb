@@ -11,8 +11,7 @@ export default class MunicipalityRoute extends Route {
       )
     ) {
       this.municipalities.setCurrentMunicipalityRoute(params.mun_id);
-      console.log(this.municipalities.currentMunicipalityRoute);
-      this.transitionTo('municipality.decisions');
+      // this.transitionTo('municipality.decisions');
       return params.mun_id;
     } else {
       this.transitionTo('dashboard');

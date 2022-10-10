@@ -1,8 +1,27 @@
 export type Decision = {
   category?: string;
-  document: string;
-  date: string;
-  actief: true | false;
+  name: string;
+  date?: {
+    begin: string;
+    end?: string;
+  };
+  accepted: true | false;
+  body: {
+    aanwezig?: string;
+    juridische_grond?: string;
+    context_en_argumentatie?: string;
+    besluit?: string;
+  };
+  municipal_vote?: {
+    for?: number;
+    against?: number;
+    neutral?: number;
+  };
+  public_vote?: {
+    for?: number;
+    against?: number;
+    neutral?: number;
+  };
 };
 
 export type Tax = {

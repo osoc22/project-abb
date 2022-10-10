@@ -26,4 +26,6 @@ Router.map(function () {
   });
   this.route('wat-zijn-belastingen');
   this.route('hoe-worden-beslissingen-genomen');
+  this.route('login');
+  this.route('BesluitenForm');
 });

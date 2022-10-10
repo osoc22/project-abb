@@ -1,0 +1,34 @@
+<AuApp>
+  <Navbar />
+  {{! <AuContainer> }}
+  <div
+    style='display: flex; justify-content:center; align-items:center; flex-direction:column; gap:20px; padding: 20px;'
+  >
+
+    <PowerSelect
+      style='width: 200px; height: 38px; '
+      @options={{this.options}}
+      @selected={{this.query}}
+      @searchEnabled={{true}}
+      @search={{this.searchRepo}}
+      @loadingMessage='Aan het laden...'
+      @allowClear={{true}}
+      @placeholder='Zottegem'
+      @noMatchesMessage='Geen resultaten'
+      @onChange={{fn (mut this.query)}}
+      as |municipality|
+    >
+      {{municipality.title}}
+    </PowerSelect>
+    <AuInput @value={{this.name}} />
+    <AuInput @value={{this.body}} />
+    <AuToggleSwitch
+      @label='Nu actief'
+      @name='accepted'
+      @checked={{this.accepted}}
+      @onChange={{this.toggleAccepted}}
+    />
+    <AuButton {{action 'submitDecision'}}>Submit</AuButton>
+  </div>
+  {{! </AuContainer> }}
+</AuApp>

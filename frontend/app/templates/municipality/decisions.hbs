@@ -1,5 +1,5 @@
 {{page-title 'Decisions'}}
-
+<p style='display: none;'>{{this.findMunicipalities}}</p>
 <AuToolbar class='au-o-box' as |Group|>
   <Group>
     <AuHeading @skin='2'>
@@ -21,7 +21,7 @@
 </AuToolbar>
 <div style='margin-top: 30px;'>
   <AuDataTable
-    @content={{this.municipality.decisionData}}
+    @content={{this.decisionData}}
     @fields='title description'
     @noDataMessage='Geen data'
     as |t|
@@ -29,17 +29,12 @@
     <t.content as |c|>
       <c.header>
         <AuDataTableThSortable
-          @field='title'
-          @label='Categorie'
+          @field='name'
+          @label='Titel'
           @class='data-table__header-title'
         />
         <AuDataTableThSortable
-          @field='description'
-          @label='Datum'
-          @class='data-table__header-title'
-        />
-        <AuDataTableThSortable
-          @field='description'
+          @field='body'
           @label='Zie besluit'
           @class='data-table__header-title'
         />
@@ -47,7 +42,7 @@
       </c.header>
       <c.body as |row|>
         <td style='display: flex; align-items:center;'>
-          {{#if row.actief}}
+          {{#if row.accepted}}
             <div
               style='border-radius: 100%; width:10px; height:10px; background-color:green; margin-right: 5px;'
             ></div>
@@ -56,14 +51,11 @@
               style='border-radius: 100%; width:10px; height:10px; background-color:red; margin-right: 5px;'
             ></div>
           {{/if}}
-          {{row.category}}
-        </td>
-        <td>
-          {{row.date}}
+          {{row.name}}
         </td>
         <td>
           <AuLink
-            @model={{this.id}}
+            @model={{row._id}}
             @route={{'municipality.decision'}}
             @icon='chevron-right'
           >

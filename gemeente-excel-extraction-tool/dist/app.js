@@ -8,22 +8,114 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var createError = require("http-errors");
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const body_parser_1 = __importDefault(require("body-parser"));
 var express = require("express");
-var path = require("path");
 const fs = require("fs");
 const cors = require("cors");
+const nodemailer = require("nodemailer");
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: "vo.abb.test@gmail.com",
+        pass: "vqlsdwigturcehqx",
+    },
+});
+const nano = require("nano")("http://admin:admin@localhost:5984");
+nano.db.create("besluitendb");
+nano.db.create("emaildb");
+const besluitendb = nano.db.use("besluitendb");
+const emaildb = nano.db.use("emaildb");
 var app = express();
+const PORT = 3000;
 app.use(cors({
     origin: "*",
 }));
+app.use(body_parser_1.default.json());
 app.set("view engine", "jade");
+app.get("/municipality/:mun_name/besluiten", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { mun_name } = req.params;
+    let query = { selector: { municipality: mun_name } };
+    yield besluitendb.find(query, (err, body, header) => {
+        if (err) {
+            res.status(500).send(err);
+        }
+        else {
+            res.send(body);
+        }
+    });
+}));
+app.post("/municipality/:mun_name/besluiten", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { mun_name } = req.params;
+    console.log("WAWA");
+    const beslissing = req.body;
+    console.log(beslissing);
+    besluitendb.insert({
+        municipality: mun_name.toLowerCase(),
+        name: beslissing.name,
+        body: beslissing.body,
+        accepted: beslissing.accepted,
+        vote: beslissing.vote,
+    }, null, (err, body) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            emaildb.find({ selector: { municipality: mun_name.toLowerCase() } }, (err, body, header) => {
+                if (err) {
+                    res.status(500).send(err);
+                }
+                else {
+                    console.log(body);
+                    body.docs.map((doc) => __awaiter(void 0, void 0, void 0, function* () {
+                        yield transporter.sendMail({
+                            from: "vo.abb.test@gmail.com",
+                            to: doc.email,
+                            subject: "Hello ✔",
+                            text: "Hello world?",
+                            html: `<b>Hello world?</b><p>Dit is een melding voor de gemeente ${mun_name.toLowerCase()}</p><p>Er is een nieuw besluit toegevoegd!!</p>`,
+                        });
+                        console.log(doc);
+                    }));
+                    res.send(body);
+                }
+            });
+            res.send("Besluit is toegevoegd aan de database");
+        }
+    });
+}));
+app.post("/municipality/:municipality/subscribe/", function (req, res, next) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const municipality = req.params.municipality;
+        const email = req.body.email;
+        yield transporter.sendMail({
+            from: "vo.abb.test@gmail.com",
+            to: email,
+            subject: "Hello ✔",
+            text: "Hello world?",
+            html: `<b>Hello world?</b><p>Dit is een melding voor de gemeente ${municipality.toLowerCase()}</p>`,
+        });
+        emaildb.insert({
+            email: email,
+            municipality: municipality.toLowerCase(),
+        }, null, (err, body) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.send("Email is toegevoegd aan de database");
+            }
+        });
+    });
+});
 app.get("/*", function (req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             let gemeente = req.query["gemeente"];
             let query = req.params[0].split("/")[0] + "/" + req.params[0].split("/")[1];
-            //  let query be the query string after the first ? in the url
             let data = yield JSON.parse(fs.readFileSync(`./formatted_data/${query}.json`));
             if (gemeente) {
                 if (Array.isArray(gemeente)) {
@@ -39,8 +131,6 @@ app.get("/*", function (req, res, next) {
                     let entry = data.filter((e) => {
                         return e.Gemeente === gemeente;
                     });
-                    console.log(entry);
-                    console.log(gemeente);
                     return res.json({ Response: entry });
                 }
             }
@@ -60,5 +150,8 @@ app.use(function (err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render("error");
+});
+app.listen(PORT, () => {
+    console.log(`Timezones by location application is running on port ${PORT}.`);
 });
 module.exports = app;

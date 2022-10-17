@@ -3,7 +3,6 @@
 <AuToolbar class='au-o-box' as |Group|>
   <Group>
     <AuHeading @skin='2'>
-      Beslissingen in de gemeente
       {{this.model}}
     </AuHeading>
   </Group>
@@ -11,7 +10,7 @@
     <AuButton @icon='book' @iconAlignment='left'>
       <LinkTo
         @model={{this.model}}
-        @route={{'municipality.info'}}
+        @route={{'index.municipality'}}
         style='color: white; text-decoration: none;'
       >
         Algemene info
@@ -56,7 +55,7 @@
         <td>
           <AuLink
             @model={{row._id}}
-            @route={{'municipality.decision'}}
+            @route={{'index.municipality.decision'}}
             @icon='chevron-right'
           >
             Bekijk besluit
@@ -66,7 +65,7 @@
     </t.content>
   </AuDataTable>
   <div class='floating-button-dock'>
-    <AuLink @route='municipality.decisions.subscribe'>
+    <AuLink @route='index.municipality.decisions.subscribe'>
       <AuButton style='cursor: pointer; margin: 0px; text-decoration:none;'>
         Abonneren
       </AuButton>

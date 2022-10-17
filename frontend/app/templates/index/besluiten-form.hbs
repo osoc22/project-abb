@@ -1,6 +1,5 @@
+<AuToaster @position='top' />
 <AuApp>
-  <Navbar />
-  {{! <AuContainer> }}
   <div
     style='display: flex; justify-content:center; align-items:center; flex-direction:column; gap:20px; padding: 20px;'
   >
@@ -20,8 +19,17 @@
     >
       {{municipality.title}}
     </PowerSelect>
+    <AuInput @value={{this.category}} />
     <AuInput @value={{this.name}} />
-    <AuInput @value={{this.body}} />
+    <AuInput @value={{this.begin}} />
+    <AuInput @value={{this.end}} />
+    <AuInput @value={{this.aanwezig}} />
+    <AuInput @value={{this.juridische_grond}} />
+    <AuInput @value={{this.context-en-argumentatie}} />
+    <AuInput @value={{this.besluit}} />
+    <AuInput @value={{this.for}} />
+    <AuInput @value={{this.against}} />
+    <AuInput @value={{this.neutral}} />
     <AuToggleSwitch
       @label='Nu actief'
       @name='accepted'

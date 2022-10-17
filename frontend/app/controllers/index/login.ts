@@ -14,6 +14,6 @@ export default class Login extends Controller {
 
   @action login() {
     console.log('u logged in');
-    this.router.transitionTo('BesluitenForm');
+    this.router.transitionTo('index.BesluitenForm');
   }
 }

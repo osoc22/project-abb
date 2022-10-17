@@ -43,6 +43,23 @@ app.get("/municipality/:mun_name/besluiten", async (req: any, res: any) => {
   });
 });
 
+app.get("/besluiten/:besluit_id", async (req: any, res: any) => {
+  const { besluit_id } = req.params;
+  console.log(besluit_id);
+  await besluitendb
+    .get(besluit_id, (err: any, body: any, header: any) => {
+      console.log(body);
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.send(body);
+      }
+    })
+    .catch((err: any) => {
+      console.log(err);
+    });
+});
+
 app.post("/municipality/:mun_name/besluiten", async (req: any, res: any) => {
   const { mun_name }: any = req.params;
   console.log("WAWA");

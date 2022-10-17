@@ -2,35 +2,14 @@
 <AuToolbar class='au-o-box' as |Group|>
   <Group>
     <AuHeading @skin='2'>
-      Algemene info over
+      Gemeente
       {{this.model}}
     </AuHeading>
-  </Group>
-  <Group class='au-c-toolbar__group--center' style='height: 100%;'>
-    <PowerSelect
-      style='width: 250px; margin-right:10px; height: 40px;'
-      @onChange={{this.handleSelect}}
-      @options={{this.infoTypes}}
-      @selected={{this.selected}}
-      as |singleselect|
-    >
-      {{singleselect}}
-    </PowerSelect>
-    <AuButton @icon='message' @iconAlignment='left'>
-      <LinkTo
-        @model={{this.model}}
-        @route={{'municipality.decisions'}}
-        style='color: white; text-decorations: none;'
-      >
-        Beslissingen
-      </LinkTo>
-    </AuButton>
   </Group>
 </AuToolbar>
 <div style='height: 100%;'>
 
   <section
-    class='au-o-region-large au-u-background-gray-200'
     style='display:flex; justify-content:center; align-items:center; width:100%; height:50%; margin: 0; padding: 0px 40px;'
   >
     <div style='width: 33%;'>

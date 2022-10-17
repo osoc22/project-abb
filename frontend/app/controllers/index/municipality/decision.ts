@@ -3,12 +3,23 @@ import { action } from '@ember/object';
 import { service } from '@ember/service';
 // import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import axios from 'axios';
 import MunicipalitiesService from 'frontend/services/municipalities';
 
 export default class MunicipalityDecision extends Controller {
   @service declare municipalities: MunicipalitiesService;
   @tracked button1 = 'secondary';
   @tracked button2 = 'secondary';
+  @tracked decision = this.fetchDecisions();
+
+  @action fetchDecisions() {
+    axios
+      .get(`http://localhost:3000/besluiten/${this.model}`)
+      .then((response) => {
+        console.log(response.data);
+        this.decision = response.data;
+      });
+  }
 
   @action vote(buttonName: string) {
     if (buttonName === 'button1') {

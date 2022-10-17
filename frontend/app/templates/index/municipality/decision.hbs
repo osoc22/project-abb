@@ -1,60 +1,46 @@
 <AuToaster />
-<AuToolbar class='au-o-box' as |Group|>
+
+<AuToolbar @size='medium' @skin='tint' @border='bottom' as |Group|>
   <Group>
-    <AuHeading @skin='2'>
-      <AuLink
-        @route='municipality.decisions'
-        @params={{this.municipalities.modalData.title}}
-        style='margin-left: 20px;'
-      >
-        {{this.municipalities.modalData.title}}
-      </AuLink>
-      / Besluit
-    </AuHeading>
+    <ul class='au-c-list-horizontal au-c-list-horizontal--small'>
+      <li class='au-c-list-horizontal__item'>
+        <AuLink
+          @linkRoute='index.municipality.decisions'
+          @model={{this.municipalities.currentMunicipality}}
+          @icon='arrow-left'
+        >
+          Besluiten
+        </AuLink>
+      </li>
+      <li class='au-c-list-horizontal__item'>
+        {{this.model}}
+      </li>
+    </ul>
   </Group>
 </AuToolbar>
 <section
   class='au-o-region-large au-u-background-gray-200'
-  style='margin: 0;display:flex; height:88%; padding: 20px;'
+  style='margin: 0;display:flex; padding: 20px; overflow: hidden;'
 >
-  <div style='display: flex; width: 50%; flex-direction:column; height:100%;'>
+  <div
+    style='display: flex; width: 50%; flex-direction:column; height:85vh; overflow: hidden;'
+  >
     <div
       style='gap: 48px; padding-right: 100px;height:100%; background-color:white;padding:40px; overflow-y: scroll;'
       class='au-c-card au-c-card--fill'
     >
       <AuContent>
         <h4 class='au-u-h5'>Aanwezig</h4>
-        <p class='au-u-para'>de heer Kris Declercq</p>
+        <p class='au-u-para'>{{this.decision.body.aanwezig}}</p>
         <h4 class='au-u-h5'>Juridische grond</h4>
-        <p class='au-u-para' style='text-align: justify;'>In het kader van de
-          bevoegdheid van de burgemeester, op grond van artikel 135 Nieuwe
-          Gemeentewet (NGW), wordt volgende concrete instructie gegeven die zal
-          gelden op donderdag 23 juni 2022 en vrijdag 24 juni 2022. Op grond van
-          artikel 133 NGW is de burgemeester belast met de uitvoering van de
-          wetten, de decreten, de ordonnanties, de verordeningen en de besluiten
-          van de Staat, de Gewesten, de Gemeenschappen, de
-          Gemeenschapscommissies, de provincieraad en de bestendige deputatie
-          van de provincieraad, tenzij zulks uitdrukkelijk aan het college van
-          burgemeester en schepenen of aan de gemeenteraad is opgedragen. Op
-          grond van art. 135 §2 NGW hebben de gemeenten ook tot taak in het
-          voorzien ten behoeve van de inwoners in een goede politie, met name
-          over de zindelijkheid, de gezondheid, de veiligheid en de rust op de
-          openbare wegen en plaatsen en in openbare gebouwen en meer specifiek
-          135 § 2: 1°, 2°, 3° en 7° NGW. Gelet op de art. 133, 133bis en 135 NGW
-          en art. 286 van het decreet lokaal bestuur.</p>
+        <p
+          class='au-u-para'
+          style='text-align: justify;'
+        >{{this.decision.body.juridische_grond}}</p>
         <h4 class='au-u-h5'>Context & argumentatie</h4>
-        <p class='au-u-para'>De activiteiten in het kader van de aanloop naar
-          het einde van het derde trimester, waarbij studenten na de examens
-          feest vieren, ging de laatste jaren gepaard met een overdadig
-          alcoholgebruik. Dit werd voor een groot deel veroorzaakt door het feit
-          dat deze activiteiten niet beperkt bleven tot bepaalde locaties of
-          tijdstippen maar dat ook reeds overdag alcohol verbruikt werd, vaak in
-          overmatige hoeveelheden. Daarom wordt er voorgesteld om op donderdag
-          23 juni 2022 en vrijdag 24 juni 2022 een algemeen verbod voor
-          minderjarigen of studenten om in het bezit te zijn van alcohol op
-          openbaar domein in te voeren. Terrassen van horecazaken worden niet
-          als openbaar domein beschouwd. Op vrijdag 24 juni 2022 loopt dit
-          verbod op de Grote Markt tot 18 u.</p>
+        <p
+          class='au-u-para'
+        >{{this.decision.body.body.context-en-argumentatie}}</p>
         <h4 class='au-u-h4'>Besluit</h4>
         <section class='au-u-para'>
           <p class='au-u-bold' style='text-decoration: underline;'>

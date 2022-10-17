@@ -5,26 +5,47 @@ import {
   decisionAmountPerYear,
   revenuePerCategory,
   revenuePerYear,
-} from '../helpers/apiInterface';
-import MunicipalitiesService from '../services/municipalities';
+} from '../../../helpers/apiInterface';
+import MunicipalitiesService from '../../../services/municipalities';
 import { action } from '@ember/object';
 import { GraphOptions } from 'index';
 import { infoTypes } from 'frontend/data/constants';
-import axios from 'axios';
-export default class Info extends Controller {
+
+export default class MunicipalityInfo extends Controller {
   @service declare municipalities: MunicipalitiesService;
-  @tracked thuiswerken: any;
   @tracked infoTypes = infoTypes;
-  @tracked selected: any;
+  @service router: any;
+  @tracked selected: any = this.infoTypes[0];
+  @action handleSelect(value: any) {
+    this.selected = value;
+
+    switch (value) {
+      case 'Algemeen':
+        this.router.transitionTo('index.municipality.info');
+        break;
+      case 'Alle Indicatoren':
+        this.router.transitionTo('index.municipality.info.alle-indicatoren');
+        break;
+      case 'Lokaal Bestuur':
+        this.router.transitionTo('index.municipality.info.lokaal-bestuur');
+        break;
+      case 'Onderwijs en Vorming':
+        this.router.transitionTo(
+          'index.municipality.info.onderwijs-en-vorming'
+        );
+        break;
+      case 'Werk':
+        this.router.transitionTo('index.municipality.info.werk');
+        break;
+      case 'Wonen en Woonomgeving':
+        this.router.transitionTo(
+          'index.municipality.info.wonen-en-woonomgeving'
+        );
+        break;
+    }
+  }
 
   @action setup() {
-    axios
-      .get(
-        `http://localhost:3000/alle_indicatoren/thuiswerk?gemeente=${this.municipalities?.modalData?.title.toLowerCase()}`
-      )
-      .then((resp: any) => {
-        this.thuiswerken = resp.data.Response[0]['2 dagen of meer (%)'];
-      });
     revenuePerYear(this.municipalities?.modalData?.title).then((resp): any => {
       this.graphData1 = {
         x: 'x',
@@ -36,7 +57,7 @@ export default class Info extends Controller {
           },
           [['x'], ['Omzet']]
         ),
-        type: 'line',
+        type: 'spline',
       };
     });
 
@@ -52,7 +73,7 @@ export default class Info extends Controller {
             },
             [['x'], ['Aantal beslissingen']]
           ),
-          type: 'line',
+          type: 'spline',
         };
       }
     );
@@ -77,7 +98,7 @@ export default class Info extends Controller {
   @tracked graphData1: GraphOptions = {
     x: 'x',
     columns: [],
-    type: 'line',
+    type: 'spline',
   };
   @tracked graphData2: GraphOptions = {
     columns: [],
@@ -86,7 +107,7 @@ export default class Info extends Controller {
   @tracked graphData3: GraphOptions = {
     x: 'x',
     columns: [],
-    type: 'line',
+    type: 'spline',
   };
 
   @tracked graphTitle1 = { text: 'Omzet per jaar' };

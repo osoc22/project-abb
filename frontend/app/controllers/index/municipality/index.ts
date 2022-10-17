@@ -5,13 +5,13 @@ import {
   decisionAmountPerYear,
   revenuePerCategory,
   revenuePerYear,
-} from '../../helpers/apiInterface';
-import MunicipalitiesService from '../../services/municipalities';
+} from '../../../helpers/apiInterface';
+import MunicipalitiesService from '../../../services/municipalities';
 import { action } from '@ember/object';
 import { GraphOptions } from 'index';
 import { infoTypes } from 'frontend/data/constants';
 
-export default class MunicipalityInfo extends Controller {
+export default class MunicipalityIndex extends Controller {
   @service declare municipalities: MunicipalitiesService;
   @tracked infoTypes = infoTypes;
   @service router: any;
@@ -21,22 +21,22 @@ export default class MunicipalityInfo extends Controller {
 
     switch (value) {
       case 'Algemeen':
-        this.router.transitionTo('municipality.info');
+        this.router.transitionTo('index.municipality.index');
         break;
       case 'Alle Indicatoren':
-        this.router.transitionTo('municipality.info.alle-indicatoren');
+        this.router.transitionTo('index.municipality.alle-indicatoren');
         break;
       case 'Lokaal Bestuur':
-        this.router.transitionTo('municipality.info.lokaal-bestuur');
+        this.router.transitionTo('index.municipality.lokaal-bestuur');
         break;
       case 'Onderwijs en Vorming':
-        this.router.transitionTo('municipality.info.onderwijs-en-vorming');
+        this.router.transitionTo('index.municipality.onderwijs-en-vorming');
         break;
       case 'Werk':
-        this.router.transitionTo('municipality.info.werk');
+        this.router.transitionTo('index.municipality.werk');
         break;
       case 'Wonen en Woonomgeving':
-        this.router.transitionTo('municipality.info.wonen-en-woonomgeving');
+        this.router.transitionTo('index.municipality.wonen-en-woonomgeving');
         break;
     }
   }

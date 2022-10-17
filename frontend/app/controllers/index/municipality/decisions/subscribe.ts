@@ -11,7 +11,7 @@ export default class MunicipalityDecisionsSubscribe extends Controller {
   @service router: any;
   @tracked email = '';
   @action closeModal() {
-    this.router.transitionTo('municipality.decisions');
+    this.router.transitionTo('index.municipality.decisions');
   }
 
   @service declare municipalities: MunicipalitiesService;

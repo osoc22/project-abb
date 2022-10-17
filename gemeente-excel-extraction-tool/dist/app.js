@@ -48,6 +48,23 @@ app.get("/municipality/:mun_name/besluiten", (req, res) => __awaiter(void 0, voi
         }
     });
 }));
+app.get("/besluiten/:besluit_id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { besluit_id } = req.params;
+    console.log(besluit_id);
+    yield besluitendb
+        .get(besluit_id, (err, body, header) => {
+        console.log(body);
+        if (err) {
+            res.status(500).send(err);
+        }
+        else {
+            res.send(body);
+        }
+    })
+        .catch((err) => {
+        console.log(err);
+    });
+}));
 app.post("/municipality/:mun_name/besluiten", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { mun_name } = req.params;
     console.log("WAWA");

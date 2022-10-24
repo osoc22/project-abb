@@ -7,15 +7,8 @@
     </AuHeading>
   </Group>
   <Group class='au-c-toolbar__group--center'>
-    <AuButton @icon='book' @iconAlignment='left'>
-      <LinkTo
-        @model={{this.model}}
-        @route={{'index.municipality'}}
-        style='color: white; text-decoration: none;'
-      >
-        Algemene info
-      </LinkTo>
-    </AuButton>
+    <AuButton onclick={{action 'getSearchPredictionVectors'}}>Search</AuButton>
+    <AuInput @placeholder='Gasprijzen' @value={{this.searchQuery}} />
   </Group>
 </AuToolbar>
 <div style='margin-top: 30px;'>

@@ -115,6 +115,9 @@
     "ember-leaflet": "^5.0.1",
     "fetch": "^1.1.0",
     "highcharts": "^10.2.0",
-    "leaflet": "^1.8.0"
+    "leaflet": "^1.8.0",
+    "lodash": "^4.17.21",
+    "lodash.camelcase": "^4.3.0",
+    "rdflib": "^2.2.20"
   }
 }
